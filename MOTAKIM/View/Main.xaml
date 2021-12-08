@@ -8,8 +8,9 @@
         Title="M7K Engine" Height="450" Width="800">
     <Grid>
         <Menu VerticalAlignment="Top">
-            <MenuItem Header="File"/>
-            <MenuItem Header="Edit"/>
+            <MenuItem Header="File" />
+            <MenuItem x:Name="MenuItm" Header="Edit"/>
         </Menu>
+        
     </Grid>
 </Window>
