@@ -1,7 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\M7K.Lib\M7K.Lib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ProjectTemplates\**"/>
+    <Content Include="ProjectTemplates\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!--ItemGroup>
+    <Content Include="../M7K.Lib/bin/$(Configuration)/netstandard2.1/M7K.Lib.dll" Link="M7K.Lib/M7K.Lib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup-->
 
 </Project>

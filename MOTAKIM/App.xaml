@@ -1,9 +1,0 @@
-﻿<Application x:Class="MOT7KIM.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:MOT7KIM"
-             StartupUri="View/Main.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
-</Application>
