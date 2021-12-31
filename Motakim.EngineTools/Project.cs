@@ -7,7 +7,7 @@ namespace Motakim.EngineTools
     public sealed class Project
     {
         [XmlAttribute]
-        public int Version;
+        public int SVersion;
     }
 }
 
