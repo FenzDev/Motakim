@@ -3,12 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <DefaultNamespace>Motakim</DefaultNamespace>
+    <AssemblyName>M7K.Lib</AssemblyName>
+    <Authors>FenzWeirdo</Authors>
+    <Company>Motakim</Company>
+    <Version>0.1</Version>
+    <Icon>Icon.png</Icon>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="FontStashSharp.MonoGame" Version="1.1.4"/>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
   </ItemGroup>
 
 </Project>
