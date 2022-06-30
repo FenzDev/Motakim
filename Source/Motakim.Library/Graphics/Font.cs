@@ -4,7 +4,6 @@ using System.IO;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace Motakim
 {

@@ -1,7 +1,7 @@
 namespace Motakim
 {
     /// <summary>
-    /// Defines the buttons on a Mouse.
+    /// Defines the scroll wheel on a Mouse.
     /// </summary>	
 	public enum MouseWheel
 	{

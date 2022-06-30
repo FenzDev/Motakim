@@ -1,5 +1,3 @@
-using System;
-
 namespace Motakim
 {
     public sealed class SpriteInstance

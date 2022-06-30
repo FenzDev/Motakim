@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using XnaRectangle = Microsoft.Xna.Framework.Rectangle;
 using SpriteEffects = Microsoft.Xna.Framework.Graphics.SpriteEffects;
-using FontStashSharp;
 
 namespace Motakim
 {
