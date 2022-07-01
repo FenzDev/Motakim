@@ -5,7 +5,7 @@
     <DefaultNamespace>Motakim</DefaultNamespace>
     <AssemblyName>M7K.Lib</AssemblyName>
     <Authors>FenzWeirdo</Authors>
-    <Company>Motakim</Company>
+    <Company>FenzWeirdo</Company>
     <Version>0.1</Version>
     <PackageID>Motakim.Library</PackageID>
     <PackageIcon>Icon.png</PackageIcon>
@@ -14,7 +14,7 @@
     <PackageTags>game,2D,engine,game-engine,library</PackageTags>
     <RepositoryURL>github.com/FenzWeirdo/Motakim</RepositoryURL>
     <Description>A 2D Game Engine ( using MonoGame's Framework )</Description>
-    <Copyright>Copyright (C) Motakim 2022</Copyright>
+    <Copyright>Copyright (c) 2022 FenzWeirdo</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
