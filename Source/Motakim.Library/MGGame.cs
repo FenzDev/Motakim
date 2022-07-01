@@ -33,7 +33,7 @@ namespace Motakim {
             {
                 if (scene.LoadWithGame)
                 {
-                    scene.Load();
+                    scene.Initialize();
                 }
 
             }
@@ -49,7 +49,7 @@ namespace Motakim {
             Texture._Pixel.TextureMap[0] = uint.MaxValue;
             Texture._Pixel.Flush();
 
-            Game.ActiveScene.Load();
+            Game.ActiveScene.Initialize();
 
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -63,11 +63,11 @@ namespace Motakim {
             if (Game.Manager != null) Game.Manager.OnFinalizing();
             
             base.UnloadContent();
-
+            
             foreach (var scene in Game.Scenes)
             {
-                if (!scene.LoadWithGame) continue; 
-                scene.Unload();
+                if (!scene.IsLoaded) continue; 
+                scene.Dispose();
             }
 
             Assets.UnloadAll();
@@ -85,7 +85,6 @@ namespace Motakim {
                 GraphicsDevice.Clear(Game.ActiveScene.Background);
             else
                 GraphicsDevice.Clear(Color.Black);
-
 
             var scene = Game.ActiveScene;
 
@@ -153,10 +152,10 @@ namespace Motakim {
 
             if (!scene.IsCameraFree)
             {
-                var l = scene.CameraBounds.Left + Game.DisplayWidth / 2;
-                var t = scene.CameraBounds.Top + Game.DisplayHeight / 2;
-                var r = scene.CameraBounds.Right - Game.DisplayWidth / 2;
-                var b = scene.CameraBounds.Bottom - Game.DisplayHeight / 2;
+                var l = scene.CameraBounds.Left + (int)(Game.DisplayWidth / Game.ScenePixelScaling) / 2;
+                var t = scene.CameraBounds.Top + (int)(Game.DisplayHeight / Game.ScenePixelScaling) / 2;
+                var r = scene.CameraBounds.Right - (int)(Game.DisplayWidth / Game.ScenePixelScaling) / 2;
+                var b = scene.CameraBounds.Bottom - (int)(Game.DisplayHeight / Game.ScenePixelScaling) / 2;
 
                 scene.Camera.X = Math.Max(scene.Camera.X, l);
                 scene.Camera.X = Math.Min(scene.Camera.X, r);

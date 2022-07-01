@@ -8,15 +8,15 @@ namespace Motakim
     {
         internal List<Entity> ChildrenList = new List<Entity>(); 
         internal List<Component> ComponentsList = new List<Component>();
+        internal HashSet<string> TagHashSet = new HashSet<string>();
         public bool Enabled { get; set; } = true;
         public string Name { get; set; }
-        public string[] Tags { get; set; }
-        public HashSet<string> TagHashSet => Tags.ToHashSet();
         public Scene Scene { get; internal set; }
         public Entity Parent { get; internal set; }
         public List<Entity> Children => new List<Entity>(ChildrenList);
         public List<Entity> FirstChildren => ChildrenList.Where(child => child.Parent == this).ToList(); 
         public IReadOnlyList<Component> Components => ComponentsList.AsReadOnly();
+        public IReadOnlyList<string> Tags;
         
         private void UpdateEntityRoot(Entity entity)
         {
@@ -52,6 +52,55 @@ namespace Motakim
             }
         }
 
+        public void AddTags(params string[] tags)
+        {
+            foreach (var tag in tags)
+            {
+                AddTag(tag);
+            }
+        }
+        public void AddTag(string tag)
+        {
+            if (TagHashSet.Contains(tag)) return;
+
+            TagHashSet.Add(tag);
+            
+            if (Scene != null)
+            { 
+                AddTag(tag);
+            }
+        }
+        public void RemoveTags(params string[] tags)
+        {
+            foreach (var tag in tags)
+            {
+                RemoveTag(tag);
+            }
+        }
+        public void RemoveTag(string tag)
+        {
+            if (!TagHashSet.Contains(tag)) return;
+
+            TagHashSet.Remove(tag);
+            
+            if (Scene != null)
+            {
+                RemoveTag(tag);
+            }
+        }
+        public bool HasTag(string tag)
+        {
+            return TagHashSet.Contains(tag);
+        }
+        public bool HasTags(params string[] tags)
+        {
+            var hasTag = false;
+            foreach (var tag in tags)
+            {
+                hasTag |= TagHashSet.Contains(tag);
+            }
+            return hasTag;
+        }
         public TComponent AddComponent<TComponent>() where TComponent : Component, new() 
         {
             return AddComponent(new TComponent());
@@ -247,6 +296,7 @@ namespace Motakim
             PutEntityAfter(FirstChildren[after], entity);
         }
         
+        public override string ToString() => $"Entity: {Name}";
         public Entity Duplicate() => (Entity)Clone();
         public object Clone() 
         {

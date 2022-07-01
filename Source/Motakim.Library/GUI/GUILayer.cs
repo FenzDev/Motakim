@@ -3,12 +3,17 @@ using Microsoft.Xna.Framework;
 
 namespace Motakim
 {
-    public abstract class GUILayer : Utilities.DisposableObject
+    public abstract class GUILayer
     {
         public Panel Panel;
 
-        public abstract void Initialize();
+        public virtual void Load() {}
+        public virtual void Unload() {}
 
+        ~GUILayer()
+        {
+            Dispose();
+        }
         internal void Update()
         {
             var game = Game._GameInstance;
@@ -23,15 +28,15 @@ namespace Motakim
             Panel.Render(new RenderHelper() { _ExtraScale = Game.GUI.Scale, _SpriteBatch = game.SpriteBatch });
         }
 
-        internal void Load()
+        internal void Initialize()
         {
             Panel = new Panel();
-            Initialize();
+            Load();
         }
-        internal void Unload()
+        internal void Dispose()
         {
             Panel = null;
-            Dispose();
+            Unload();
         }
 
     }

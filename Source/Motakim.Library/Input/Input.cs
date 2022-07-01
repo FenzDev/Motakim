@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Motakim.Utilities;
 
 namespace Motakim
 {
@@ -16,7 +17,7 @@ namespace Motakim
         public static InputKey UIUp = new InputKey().AddKeyboardTrigger(Keys.Up);
         public static InputKey UIRight = new InputKey().AddKeyboardTrigger(Keys.Right);
         public static InputKey UIDown = new InputKey().AddKeyboardTrigger(Keys.Down);
-        public static IReadOnlyDictionary<string, InputKey> InputKeys => new Dictionary<string, InputKey>(_Keys);
+        public static IReadOnlyDictionary<string, InputKey> InputKeys => _Keys.AsReadOnly();
 
         internal static void Initialize(MGGame game)
         {

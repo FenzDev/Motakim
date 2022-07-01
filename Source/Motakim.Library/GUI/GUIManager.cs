@@ -25,24 +25,24 @@ namespace Motakim
         public void Display(GUILayer gui)
         {
             Layers.Add(gui);
-            gui.Load();
+            gui.Initialize();
         }
 
         public void Hide(GUILayer gui)
         {
-            gui.Unload();
+            gui.Dispose();
             Layers.Remove(gui);
         }
         public void Hide(int index)
         {
             if (Layers.Count <= 0) return;
-            Layers[index].Unload();
+            Layers[index].Dispose();
             Layers.RemoveAt(index);
         }
         public void HideCurrent()
         {
             if (Layers.Count <= 0) return;
-            Layers[Layers.Count - 1].Unload();
+            Layers[Layers.Count - 1].Dispose();
             Layers.RemoveAt(Layers.Count - 1);
         }
 
@@ -50,7 +50,7 @@ namespace Motakim
         {
             foreach (var layer in Layers)
             {
-                layer.Unload();
+                layer.Dispose();
             }
             Layers.Clear();
         }

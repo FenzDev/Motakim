@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -10,11 +11,12 @@ namespace Motakim
         
         internal Texture2D Texture2D; 
         private bool _IsDisposed;
-        public string Name { get; private set; } = "Texture";
+        public string Name { get; set; }
         public int Width { get; private set; }
         public int Height { get; private set; }
         public uint[] TextureMap { get; internal set; }
         public bool IsDisposed => _IsDisposed;
+
 
         public Texture() : this(0, 0) {}
         public Texture(int width, int height)
@@ -29,8 +31,6 @@ namespace Motakim
             if (Texture2D != null) Texture2D.Dispose();
 
             Texture2D = Texture2D.FromStream(Game._GameInstance.GraphicsDevice, stream);
-            
-            Name = Texture2D.Name;
 
             Width = Texture2D.Width;
             Height = Texture2D.Height;

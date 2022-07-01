@@ -90,7 +90,7 @@ namespace Motakim
 
         class _FontFile
         {
-            public int DefaultCharacter;
+            public int DefaultCharacter = '?';
             public string[] Fonts;
         }
     }

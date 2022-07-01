@@ -10,8 +10,8 @@ namespace Motakim
         private static SoundEffectInstance _MusicSFXInstance;
         private static bool _IsFullScreen = false;
         private static bool _IsMouseVisible = true;
-        private static int _DisplayWidth = 1024;
-        private static int _DisplayHeight = 768;
+        private static int _DisplayWidth = 800;
+        private static int _DisplayHeight = 480;
         private static bool _AltF4QuitsGame = true;
         internal static MGGame _GameInstance;
         internal static bool _ChangeSceneNextUpdate;
@@ -109,7 +109,7 @@ namespace Motakim
                 ActiveScene.Leaving();
                 if (!ActiveScene.LoadWithGame)
                 {
-                    ActiveScene.Unload();
+                    ActiveScene.Dispose();
                 }
 
                 if (Game.Manager != null) Game.Manager.OnceSceneEnded();
@@ -122,7 +122,7 @@ namespace Motakim
             ActiveScene.Entering();
             if (!ActiveScene.LoadWithGame)
             {
-                ActiveScene.Load();
+                ActiveScene.Initialize();
             }
 
             if (Game.Manager != null) Game.Manager.OnceSceneStarted();

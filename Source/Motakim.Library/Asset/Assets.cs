@@ -25,6 +25,7 @@ namespace Motakim
                 asset = new T();
                 var stream = TitleContainer.OpenStream(Path.Combine(assetsPath, assetName));
                 asset.Load(stream);
+                asset.Name = assetName;
                 AssetsBank.Add(assetName, asset);
             }
             else

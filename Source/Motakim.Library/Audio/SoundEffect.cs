@@ -10,7 +10,7 @@ namespace Motakim
         public SoundEffect() {}
 
         internal XnaSoundEffect _SFX; 
-        public string Name { get; private set; } = "SFX";
+        public string Name { get; set; } = "SFX";
         public bool IsDisposed => _IsDisposed;
         protected bool _IsDisposed;
 

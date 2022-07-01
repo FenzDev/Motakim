@@ -2,16 +2,15 @@ using Microsoft.Xna.Framework;
 
 namespace Motakim
 {
-    public class CollisionMask : Component
+    public class MaskCollider : Component
     {
         public Rectangle Mask;
 
-        public CollisionMask() {}
-        public CollisionMask(Rectangle mask) : this(mask, false) {}
-        public CollisionMask(Rectangle mask, bool IsSolid)
+        public MaskCollider() {}
+        public MaskCollider(int left, int top, int right, int bottom) : this(new Rectangle(left, top, right - left, bottom - top)) {}
+        public MaskCollider(Rectangle mask)
         {
             Mask = mask;
-            IsSolid = true;
         }
 
         public Rectangle GetTransformedMask()
@@ -27,7 +26,7 @@ namespace Motakim
         }
         public bool IsColidingWith(Entity entity)
         {
-            if (entity.HasComponent<CollisionMask>(out var otherCollisionMask))
+            if (entity.HasComponent<MaskCollider>(out var otherCollisionMask))
             {
                 if (entity.HasComponent<Transform>(out var otherTransform) && Entity.HasComponent<Transform>(out var transform))
                 {

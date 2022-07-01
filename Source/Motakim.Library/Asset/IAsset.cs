@@ -5,8 +5,8 @@ namespace Motakim
 {
     public interface IAsset : IDisposable
     {
-        string Name { get; }
+        public string Name { get; set; }
         
-        void Load(Stream stream);
+        public void Load(Stream stream);
     }
 }

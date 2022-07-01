@@ -9,6 +9,7 @@ namespace Motakim
     {
         internal List<ComponentsGroup> RenderComponentGroups = new List<ComponentsGroup>();
         internal List<ComponentsGroup> UpdateComponentGroups = new List<ComponentsGroup>();
+        internal Dictionary<string, List<Entity>> EntityTagGroups = new Dictionary<string, List<Entity>>();
         internal List<Entity> EntitiesList { get; private set; } 
         public string Name;
         public IReadOnlyList<Entity> Entities => new List<Entity>(EntitiesList).AsReadOnly(); 
@@ -16,42 +17,42 @@ namespace Motakim
         public bool IsLoaded { get; internal set; }
         public Color Background;
         public bool IsCameraFree = false;
-        public Rectangle CameraBounds = new Rectangle(0, 0, Game.DisplayWidth, Game.DisplayHeight);
+        public Rectangle CameraBounds = new Rectangle(0, 0, (int)(Game.DisplayWidth / Game.ScenePixelScaling), (int)(Game.DisplayHeight / Game.ScenePixelScaling));
         public Vector2 Camera;
         public Entity CameraTarget { get; set; }
 
         internal protected virtual bool LoadWithGame => false;
-        internal protected abstract void Initialize();
+        internal protected virtual void Load() {}
+        internal protected virtual void Unload() {}
         internal protected virtual void Entering() {}
         internal protected virtual void Leaving() {}
 
-        internal virtual void Load() 
+        ~Scene()
+        {
+            Dispose();
+        }
+        internal virtual void Initialize() 
         {
             EntitiesList = new List<Entity>();
 
-            Initialize();
-
+            Load();
             IsLoaded = true;
         }
-        internal virtual void Unload() 
+        internal virtual void Dispose() 
         {
-            Dispose();
-            
+            Unload();
             IsLoaded = false;
 
-            EntitiesList = null;
-        }
-
-        private void Dispose()
-        {
             var entities = RootEntities;
             foreach (var entity in entities)
             {
                 RemoveEntity(entity);
             }
+            
+            EntitiesList = null;
 
-            Camera = Vector2.Zero;      
-        } 
+            Camera = Vector2.Zero;  
+        }
         internal void UpdateEntityRoot(Entity entity)
         {
             entity.ChildrenList = FindEntityChildren(entity).ToList();
@@ -68,7 +69,7 @@ namespace Motakim
         } 
         internal Matrix GetCameraMatrix()
         {
-            return Matrix.CreateWorld(new Vector3(Camera * Game.ScenePixelScaling, 0f), Vector3.Forward, Vector3.Up);
+            return Matrix.CreateLookAt(new Vector3((Camera - new Vector2(-Game.DisplayWidth / 2f, -Game.DisplayHeight / 2f)) * Game.ScenePixelScaling, 0f), Vector3.Zero, Vector3.Up);
         }  
         private void RemoveEntity(Entity entity, bool first)
         {
@@ -92,6 +93,14 @@ namespace Motakim
             if (rGroup > -1)
             {
                 RenderComponentGroups.RemoveAt(rGroup);
+            }
+            
+            foreach (var tag in entity.TagHashSet)
+            {
+                var group = EntityTagGroups[tag];
+                group.Remove(entity);
+
+                if (group.Count == 0) EntityTagGroups.Remove(tag);
             }
 
             if (first)
@@ -154,7 +163,35 @@ namespace Motakim
                 }
             }
 
+            foreach (var tag in entity.TagHashSet)
+            {
+                if (!EntityTagGroups.ContainsKey(tag))
+                {
+                    EntityTagGroups.Add(tag, new List<Entity>());
+                }
+                EntityTagGroups[tag].Add(entity);
+            }
+
         }
+        internal void AddEntityTag(Entity entity, string tag)
+        {
+            if (!EntityTagGroups.ContainsKey(tag))
+            {
+                EntityTagGroups.Add(tag, new List<Entity>());
+            }
+            EntityTagGroups[tag].Add(entity);
+        }
+        internal void RemoveEntityTag(Entity entity, string tag)
+        {
+            if (!EntityTagGroups.ContainsKey(tag)) return;
+            
+            EntityTagGroups[tag].Remove(entity);
+            if (EntityTagGroups[tag].Count == 0)
+            {
+                EntityTagGroups.Remove(tag);
+            } 
+        }
+        public override string ToString() => $"Scene: {Name}";
 
         public bool HasEntity(Entity entity)
         {
@@ -171,23 +208,16 @@ namespace Motakim
         }
         public List<Entity> GetEntitiesWithTag(string tag)
         {
-            return EntitiesList.FindAll(entity => entity.Tags.Contains(tag));
-        }
-        public List<Entity> GetEntitiesWithTags(params string[] tags)
-        {
-            var list = new List<Entity>();
-            foreach (var tag in tags)
-            {
-                list.AddRange(GetEntitiesWithTag(tag));
-            }
-            return list;
+            if (!EntityTagGroups.ContainsKey(tag)) return new List<Entity>();
+            
+            return EntityTagGroups[tag];
         }
         public Entity FindEntity(Predicate<Entity> condition) => EntitiesList.Find(condition);
         public List<Entity> FindEntities(Predicate<Entity> condition) => EntitiesList.FindAll(condition);
-        public Entity CreateEntity(string name = "") 
+        public Entity CreateEntity(string name = "", Vector2 position = default)
         {
             var entity = new Entity() { Name = name };
-            entity.AddComponent<Transform>();
+            entity.AddComponent(new Transform(position));
 
             PutEntity(entity);
             return entity;
