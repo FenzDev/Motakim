@@ -7,7 +7,14 @@
     <Authors>FenzWeirdo</Authors>
     <Company>Motakim</Company>
     <Version>0.1</Version>
-    <Icon>Icon.png</Icon>
+    <PackageID>Motakim.Library</PackageID>
+    <PackageIcon>Icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageTags>game,2D,engine,game-engine,library</PackageTags>
+    <RepositoryURL>github.com/FenzWeirdo/Motakim</RepositoryURL>
+    <Description>A 2D Game Engine ( using MonoGame's Framework )</Description>
+    <Copyright>Copyright (C) Motakim 2022</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +23,12 @@
     </PackageReference>
     <PackageReference Include="FontStashSharp.MonoGame" Version="1.1.4"/>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="\"/>
+    <None Include="../../LICENSE" Pack="true" PackagePath="\"/>
+    <None Include="Icon.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
