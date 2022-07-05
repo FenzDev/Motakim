@@ -30,15 +30,15 @@ namespace Motakim
             {
                 case HorizontalAlignment.Center:
                     drawX = _Bounds.X + _Bounds.Width / 2f;
-                    drawOriginX = width / 2f;
+                    drawOriginX = 0.5f;
                     break;
                 case HorizontalAlignment.Left:
                     drawX = _Bounds.Left;
                     drawOriginX = 0f;
                     break;
                 case HorizontalAlignment.Right:
-                    drawX = _Bounds.Right - width;
-                    drawOriginX = width;
+                    drawX = _Bounds.Right;
+                    drawOriginX = 1f;
                     break;
                 default:
                     drawX = _Bounds.X;
@@ -50,15 +50,15 @@ namespace Motakim
             {
                 case VerticalAlignment.Center:
                     drawY = _Bounds.Y + _Bounds.Height / 2f;
-                    drawOriginY = height / 2f;
+                    drawOriginY = 0.5f;
                     break;
                 case VerticalAlignment.Top:
                     drawY = _Bounds.Top;
                     drawOriginY = 0f;
                     break;
                 case VerticalAlignment.Bottom:
-                    drawX = _Bounds.Bottom - height;
-                    drawOriginY = height;
+                    drawX = _Bounds.Bottom;
+                    drawOriginY = 1f;
                     break;
                 default:
                     drawY = _Bounds.Y;

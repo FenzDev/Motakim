@@ -11,7 +11,7 @@ namespace Motakim
     {
         static Font()
         {
-            _DefaultFont = new Font();
+            DefaultFont = new Font();
             var fontFile = new _FontFile()
             {
                 DefaultCharacter = (int)'?',
@@ -20,19 +20,28 @@ namespace Motakim
                     "Arial.ttf"
                 }
             };
-            _DefaultFont.Load(fontFile); 
+            DefaultFont.Load(fontFile); 
         }
-        internal static Font _DefaultFont = new Font();
         internal Dictionary<int, DynamicSpriteFont> _DynamicFonts = new Dictionary<int, DynamicSpriteFont>();
         internal FontSystem _FontSystem = new FontSystem();
         
-        public static Font DefaultFont => _DefaultFont;
+        public static Font DefaultFont { get; set; } = new Font();
         public string Name { get; set; }
         public int? DefaultCharacter
         {
             get => _FontSystem.DefaultCharacter;
             set => _FontSystem.DefaultCharacter = value;
         } 
+        
+
+        public Font() {}
+        public Font(string systemFontName)
+        {
+            var folder = Environment.GetFolderPath(Environment.SpecialFolder.Fonts);
+
+            var fontFile = Path.Combine(folder, $"{systemFontName}.ttf");
+            _FontSystem.AddFont(File.ReadAllBytes(fontFile));
+        }
 
         private void Load(_FontFile file)
         {
@@ -87,6 +96,7 @@ namespace Motakim
         {
             return GetFont(fontSize).MeasureString(text);
         }
+
 
         class _FontFile
         {

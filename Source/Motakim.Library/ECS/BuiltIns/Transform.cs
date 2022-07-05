@@ -6,28 +6,28 @@ namespace Motakim
     {
         public Transform() {}
         public Transform(float x, float y) : this(new Vector2(x, y)) {}
-        public Transform(Vector2 position)
+        public Transform(Vector2 translation)
         {
-            Position = position;
+            Translation = translation;
         }
-        public Transform(Vector2 position, Vector2 scale)
+        public Transform(Vector2 translation, Vector2 scale)
         {
-            Position = position;
+            Translation = translation;
             Scale = scale;
         }
-        public Transform(Vector2 position, float rotation)
+        public Transform(Vector2 translation, float rotation)
         {
-            Position = position;
+            Translation = translation;
             Rotation = rotation;
         }
-        public Transform(Vector2 position, Vector2 scale, float rotation)
+        public Transform(Vector2 translation, Vector2 scale, float rotation)
         {
-            Position = position;
+            Translation = translation;
             Scale = scale;
             Rotation = rotation;
         }
 
-        public Vector2 Position;
+        public Vector2 Translation;
         public Vector2 Scale = new Vector2(1f);
         public float Rotation;
     }

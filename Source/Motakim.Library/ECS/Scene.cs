@@ -69,7 +69,7 @@ namespace Motakim
         } 
         internal Matrix GetCameraMatrix()
         {
-            return Matrix.CreateLookAt(new Vector3((Camera - new Vector2(-Game.DisplayWidth / 2f, -Game.DisplayHeight / 2f)) * Game.ScenePixelScaling, 0f), Vector3.Zero, Vector3.Up);
+            return Matrix.CreateTranslation(new Vector3(Camera * Game.ScenePixelScaling - new Vector2(Game.DisplayWidth / 2f, Game.DisplayHeight / 2f), 0f));
         }  
         private void RemoveEntity(Entity entity, bool first)
         {

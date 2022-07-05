@@ -7,7 +7,7 @@ namespace Motakim
 {
     public static class Assets
     {
-        public static string assetsPath = "Assets";
+        public static string AssetsDirectory = "Assets";
 
         internal static Dictionary<string, IAsset> AssetsBank = new Dictionary<string, IAsset>();
 
@@ -23,7 +23,7 @@ namespace Motakim
             if (!AssetsBank.ContainsKey(assetName))
             {
                 asset = new T();
-                var stream = TitleContainer.OpenStream(Path.Combine(assetsPath, assetName));
+                var stream = TitleContainer.OpenStream(Path.Combine(AssetsDirectory, assetName));
                 asset.Load(stream);
                 asset.Name = assetName;
                 AssetsBank.Add(assetName, asset);

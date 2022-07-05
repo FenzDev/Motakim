@@ -31,4 +31,7 @@
     <None Include="Icon.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="**/*.ignore.cs" />
+  </ItemGroup>
 </Project>

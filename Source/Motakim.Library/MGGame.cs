@@ -146,7 +146,7 @@ namespace Motakim {
             {
                 if (scene.CameraTarget.Scene != null && scene.CameraTarget.HasComponent<Transform>(out var transform))
                 {
-                    scene.Camera = transform.Position;
+                    scene.Camera = transform.Translation;
                 } 
             }
 

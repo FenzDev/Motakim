@@ -7,8 +7,8 @@ namespace Motakim
     {
         public Panel Panel;
 
-        public virtual void Load() {}
-        public virtual void Unload() {}
+        internal protected virtual void Load() {}
+        internal protected virtual void Unload() {}
 
         ~GUILayer()
         {

@@ -32,7 +32,7 @@ namespace Motakim {
             {
                 var frame = SpriteInstance.CurrentFrame;
                 
-                render.Position = transform.Position;
+                render.Position = transform.Translation;
                 render.Scale = transform.Scale;
                 render.Rotation = transform.Rotation;
                 render.Origin = frame.Origin;

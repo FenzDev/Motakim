@@ -75,7 +75,7 @@ namespace Motakim
                 Color,
                 Scale,
                 Rotation,
-                Origin * new Vector2(_ExtraScale),
+                Origin * font.MeasureString(Text),
                 LayerDepth
             );
         }

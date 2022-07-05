@@ -17,7 +17,7 @@ namespace Motakim
         {
             if (Entity.HasComponent<Transform>(out var transform))
             {
-                var location = (transform.Position + new Vector2(Mask.X, Mask.Y) * transform.Scale).ToPoint();
+                var location = (transform.Translation + new Vector2(Mask.X, Mask.Y) * transform.Scale).ToPoint();
                 var size = (new Vector2(Mask.Width, Mask.Height) * transform.Scale).ToPoint();
 
                 return new Rectangle(location, size);

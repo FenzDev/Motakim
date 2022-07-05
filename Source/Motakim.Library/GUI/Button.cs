@@ -37,10 +37,7 @@ namespace Motakim
         public Button()
         {
             Foreground = Color.White;
-            DefaultBackground = new Color(0xFF4F4F4F);
             Background = DefaultBackground;
-            HoverBackground = new Color(0xFF5F5F5F);
-            PressingBackground = new Color(0xFF121212);
             Font = Font.DefaultFont;
             FontSize = 9;
         }
@@ -70,10 +67,9 @@ namespace Motakim
                 }
                 else if (_HasBeenPressed)
                 {
-                    Background = DefaultBackground;
-                    _HasBeenPressed = false;   
-                    
                     OnActivated.Invoke();
+                    
+                    _HasBeenPressed = false;   
                 }
             }
             else if (!IsDown)
