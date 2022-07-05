@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{E031FAA9-3F91-476E-87FE-012FBB3C1E31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motakim.Library", "Source\Motakim.Library\Motakim.Library.csproj", "{BD8782B5-3614-4B85-AAF2-C2955AE15101}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3798C7CC-679A-40E2-8F83-1568291B14C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.GL", "Tests\Sample\Sample.GL.csproj", "{F68D7951-C8BA-4561-94B9-D983390343C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD8782B5-3614-4B85-AAF2-C2955AE15101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD8782B5-3614-4B85-AAF2-C2955AE15101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD8782B5-3614-4B85-AAF2-C2955AE15101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD8782B5-3614-4B85-AAF2-C2955AE15101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68D7951-C8BA-4561-94B9-D983390343C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68D7951-C8BA-4561-94B9-D983390343C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68D7951-C8BA-4561-94B9-D983390343C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68D7951-C8BA-4561-94B9-D983390343C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD8782B5-3614-4B85-AAF2-C2955AE15101} = {E031FAA9-3F91-476E-87FE-012FBB3C1E31}
+		{F68D7951-C8BA-4561-94B9-D983390343C5} = {3798C7CC-679A-40E2-8F83-1568291B14C5}
+	EndGlobalSection
+EndGlobal

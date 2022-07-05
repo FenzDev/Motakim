@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{C26FDD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motakim.Library", "Source\Motakim.Library\Motakim.Library.csproj", "{5E2C51CB-E47B-49B6-85D8-EF3D8026B31F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5F523280-DD31-4CEA-B6AD-67DAA9884F53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.DX", "Tests\Sample.DX\Sample.csproj", "{D0F68D3B-E21C-473B-9F64-C089D4B0D8D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{5E2C51CB-E47B-49B6-85D8-EF3D8026B31F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E2C51CB-E47B-49B6-85D8-EF3D8026B31F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E2C51CB-E47B-49B6-85D8-EF3D8026B31F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0F68D3B-E21C-473B-9F64-C089D4B0D8D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0F68D3B-E21C-473B-9F64-C089D4B0D8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0F68D3B-E21C-473B-9F64-C089D4B0D8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0F68D3B-E21C-473B-9F64-C089D4B0D8D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5E2C51CB-E47B-49B6-85D8-EF3D8026B31F} = {C26FDD5D-5184-4B81-866C-C1F6ACAC68DC}
+		{D0F68D3B-E21C-473B-9F64-C089D4B0D8D4} = {5F523280-DD31-4CEA-B6AD-67DAA9884F53}
 	EndGlobalSection
 EndGlobal

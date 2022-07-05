@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <OutputPath>bin/GL/$(Configuartion)</OutputPath>
+    <IntermidatePath>obj/Gl/$(Configuartion)</IntermidatePath>
+    <DefineConstants>GL</DefineConstants>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <TieredCompilation>false</TieredCompilation>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
+    <ProjectReference Include="../../Source/Motakim.Library/Motakim.Library.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets/**/*.*">
+      <CopyToOutputDirectory>always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

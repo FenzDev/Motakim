@@ -3,6 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Motakim
+.vscode/
 *.ignore.cs
 
 # User-specific files
