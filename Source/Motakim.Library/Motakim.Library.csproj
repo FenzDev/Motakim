@@ -3,18 +3,23 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <DefaultNamespace>Motakim</DefaultNamespace>
+
+    <OutputPath>../../bin/Motakim.Library/$(Configuartion)</OutputPath>
+
+    <!-- Packaging Informations -->
     <AssemblyName>M7K.Lib</AssemblyName>
-    <Authors>FenzWeirdo</Authors>
-    <Company>FenzWeirdo</Company>
-    <Version>0.1.1-alpha</Version>
+    <Authors>FenzDev</Authors>
+    <Company>FenzDev</Company>
+    <Version>0.1.2-alpha</Version>
     <PackageID>Motakim.Library</PackageID>
     <PackageIcon>Icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageTags>m7k,game,2D,game-engine,monogame</PackageTags>
-    <RepositoryUrl>github.com/FenzWeirdo/Motakim</RepositoryUrl>
+    <RepositoryUrl>github.com/FenzDev/Motakim</RepositoryUrl>
     <Description>A 2D Game Engine ( using MonoGame's Framework )</Description>
-    <Copyright>Copyright (c) 2022 FenzWeirdo</Copyright>
+    <Copyright>Copyright (c) 2022 FenzDev</Copyright>
+
   </PropertyGroup>
 
   <ItemGroup>
