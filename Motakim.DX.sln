@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motakim.Library", "Source\M
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5F523280-DD31-4CEA-B6AD-67DAA9884F53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.DX", "Tests\Sample.DX\Sample.csproj", "{D0F68D3B-E21C-473B-9F64-C089D4B0D8D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.DX", "Tests\Sample\Sample.DX.csproj", "{D0F68D3B-E21C-473B-9F64-C089D4B0D8D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

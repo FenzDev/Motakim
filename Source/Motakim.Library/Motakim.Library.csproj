@@ -18,7 +18,7 @@
     <PackageTags>m7k,game,2D,game-engine,monogame</PackageTags>
     <RepositoryUrl>github.com/FenzDev/Motakim</RepositoryUrl>
     <Description>A 2D Game Engine ( using MonoGame's Framework )</Description>
-    <Copyright>Copyright (c) 2022 FenzDev</Copyright>
+    <Copyright>Copyright (c) 2024 FenzDev</Copyright>
 
   </PropertyGroup>
 
