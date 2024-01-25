@@ -3,25 +3,30 @@ namespace Tests.Sample;
 class PlayerMovement : Component, IUpdate
 {
     public static float Speed = 1.2f;
+    public static float DiagonalSpeed = Speed / MathF.Sqrt(2);
 
     public void Update()
     {
         var transform = Entity.GetComponent<Transform>();
-        if (Core.Right.IsHolding)
+
+        var movesHor = Core.Right.IsHolding || Core.Left.IsHolding;
+        var movesVer = Core.Up.IsHolding || Core.Down.IsHolding;
+
+        float xMovement, yMovement;
+        xMovement = (Core.Right.Holding - Core.Left.Holding);
+        yMovement = (Core.Down.Holding - Core.Up.Holding);
+
+        if (movesHor && movesVer)
         {
-            transform.Translation.X += Speed;
+            xMovement *= DiagonalSpeed;
+            yMovement *= DiagonalSpeed;
         }
-        else if (Core.Left.IsHolding)
+        else
         {
-            transform.Translation.X -= Speed;
+            xMovement *= Speed;
+            yMovement *= Speed;
         }
-        if (Core.Up.IsHolding)
-        {
-            transform.Translation.Y -= Speed;
-        }
-        else if (Core.Down.IsHolding)
-        {
-            transform.Translation.Y += Speed;
-        }
+
+        transform.Translation += new Vector2(xMovement, yMovement);
     }
 }
