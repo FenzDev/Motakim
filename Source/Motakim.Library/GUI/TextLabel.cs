@@ -5,12 +5,14 @@ namespace Motakim
     public sealed class TextLabel : GUIElement
     {
         public string Text;
-        public Font Font = Font.DefaultFont;
+        public Font Font;
         public int FontSize = 9;
         public Color Foreground = Color.White;
 
         internal override void Render(RenderHelper render)
         {
+            if (Font == null) return;
+
             if (Foreground.A == 0) return;
 
             float drawX, drawY, drawXScale, drawYScale, drawOriginX, drawOriginY;

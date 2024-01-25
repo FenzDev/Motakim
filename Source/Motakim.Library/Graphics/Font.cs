@@ -9,23 +9,9 @@ namespace Motakim
 {
     public sealed class Font : IAsset
     {
-        static Font()
-        {
-            DefaultFont = new Font();
-            var fontFile = new _FontFile()
-            {
-                DefaultCharacter = (int)'?',
-                Fonts = new string[] 
-                {
-                    "Arial.ttf"
-                }
-            };
-            DefaultFont.Load(fontFile); 
-        }
         internal Dictionary<int, DynamicSpriteFont> _DynamicFonts = new Dictionary<int, DynamicSpriteFont>();
         internal FontSystem _FontSystem = new FontSystem();
         
-        public static Font DefaultFont { get; set; } = new Font();
         public string Name { get; set; }
         public int? DefaultCharacter
         {

@@ -38,7 +38,6 @@ namespace Motakim
         {
             Foreground = Color.White;
             Background = DefaultBackground;
-            Font = Font.DefaultFont;
             FontSize = 9;
         }
 
